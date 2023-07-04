@@ -1,6 +1,10 @@
 package br.com.mcoder.domain;
 
-public class Cliente {
+import anotacao.TipoChave;
+
+public class Cliente implements Persistente{
+	
+	@TipoChave("getCpf")
 	
 	private String nome;
 	

@@ -1,15 +1,9 @@
 package br.com.mcoder.dao;
 
 import br.com.mcoder.domain.Cliente;
+import br.com.mcoder.services.generic.IGenericService;
 
-public interface IClienteDAO {
+public interface IClienteDAO extends IGenericService<Cliente, Long>{
 
-	Boolean salvar(Cliente cliente);
 	
-	Cliente buscarPorCpf(Long cpf);
-
-	void excluir(Long cpf);
-
-	void alterar(Cliente cliente);
-
 }

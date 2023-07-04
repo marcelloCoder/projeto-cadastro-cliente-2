@@ -1,7 +1,10 @@
 package br.com.mcoder.services.generic;
 
 import java.io.Serializable;
+import java.util.Collection;
 
+import br.com.mcoder.dao.exceptions.TipoChaveNaoEncontradaException;
+import br.com.mcoder.dao.generic.IGenericDAO;
 import br.com.mcoder.domain.Persistente;
 
 public abstract class GenericService<T extends Persistente, E extends Serializable> implements IGenericService<T, E> {

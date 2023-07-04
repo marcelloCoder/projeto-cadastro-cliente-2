@@ -1,32 +1,31 @@
 package br.com.mcoder.dao;
 
+import br.com.mcoder.dao.generic.GenericDAO;
 import br.com.mcoder.domain.Cliente;
 
-public class ClienteDAO implements IClienteDAO {
+public class ClienteDAO extends GenericDAO<Cliente, Long> implements IClienteDAO {
+
+	public ClienteDAO() {
+		super();
+	}
 
 	@Override
-	public Boolean salvar(Cliente cliente) {
-		// TODO Auto-generated method stub
-		return true;
+	public Class<Cliente> getTipoClasse() {
+		return Cliente.class;
+	}
+
+	@Override
+	public void atualiarDados(Cliente entity, Cliente entityCadastrado) {
+		entityCadastrado.setCidade(entity.getCidade());
+		entityCadastrado.setCpf(entity.getCpf());
+		entityCadastrado.setEndereco(entity.getEndereco());
+		entityCadastrado.setEstado(entity.getEstado());
+		entityCadastrado.setNome(entity.getNome());
+		entityCadastrado.setNumero(entity.getNumero());
+		entityCadastrado.setTelefone(entity.getTelefone());
 		
 	}
 
-	@Override
-	public Cliente buscarPorCpf(Long cpf) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
-	@Override
-	public void excluir(Long cpf) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void alterar(Cliente cliente) {
-		// TODO Auto-generated method stub
-		
-	}
 
 }
