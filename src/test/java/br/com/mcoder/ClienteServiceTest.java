@@ -9,6 +9,7 @@ import org.junit.Test;
 import br.com.mcoder.dao.ClienteDaoMock;
 import br.com.mcoder.dao.IClienteDAO;
 import br.com.mcoder.dao.exceptions.TipoChaveNaoEncontradaException;
+import br.com.mcoder.dao.generic.IGenericDAO;
 import br.com.mcoder.domain.Cliente;
 import br.com.mcoder.services.ClienteService;
 import br.com.mcoder.services.IClienteService;
@@ -20,7 +21,8 @@ public class ClienteServiceTest {
 	private Cliente client;
 	
 	public ClienteServiceTest() {
-		IClienteDAO dao = new ClienteDaoMock();
+		@SuppressWarnings("unchecked")
+		IGenericDAO<Cliente, Long> dao = (IGenericDAO<Cliente, Long>) new ClienteDaoMock();
 		clientService = new ClienteService(dao);
 	}
 	
